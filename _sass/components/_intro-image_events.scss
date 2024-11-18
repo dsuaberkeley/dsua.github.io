@@ -1,0 +1,38 @@
+.intro-image-events{
+  width: 100%;
+  height: auto;
+  margin-top: -70px;
+  opacity: 0.9;
+}
+.intro-image-absolute-events {
+  max-width: none;
+  border-radius: 10px;
+
+  padding: 0;
+  margin-bottom: 30px;
+  @include media-breakpoint-up(sm) {
+  }
+  @include media-breakpoint-up(md) {
+    position: absolute;
+    bottom: -123px;
+    left: -50px;
+    width: 700px;
+  }
+  @include media-breakpoint-up(lg) {
+    bottom: -136px;
+    left: -60px;
+    width: 800px;
+  }
+  @include media-breakpoint-up(xl) {
+    top: -120px;
+    left: -38px;
+    width: 650px;
+    bottom: 87px;
+  }
+}
+.intro-image-hide-mobile {
+  display: none;
+  @include media-breakpoint-up(md) {
+    display: block;
+  }
+}
