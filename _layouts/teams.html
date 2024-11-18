@@ -2,8 +2,25 @@
 layout: default
 bodyClass: "page-teams"
 ---
+<style>
+    .icon{
+        padding-left: 0px;
+        width: 19px;
+        height: 19px;
+        transition: opacity 0.1s;
+        cursor: pointer;
+        position: relative;
+        top: 2px; /* Adjust this value until it looks correct */
+      }
 
-<div class="intro">
+    .icon:hover{
+        padding-left: 0px;
+        opacity: 0.7;
+  }
+  
+</style>
+
+<div class="intro_staff">
     <div class="container">
         <div class="row justify-content-start">
             <div class="col-12 col-md-7 col-lg-6 order-2 order-md-1">
@@ -11,14 +28,14 @@ bodyClass: "page-teams"
             </div>
             {% if page.intro_image %}
             <div class="col-12 col-md-5 col-lg-6 order-1 order-md-2 position-relative">
-                <img alt={{ page.title }} class="intro-image{% if page.intro_image_absolute %} intro-image-absolute{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
+                <img alt={{ page.title }} class="intro-image-staff{% if page.intro_image_absolute %} intro-image-absolute-staff{% endif %}{% if page.intro_image_hide_on_mobile %} intro-image-hide-mobile{% endif %}" src="{{ page.intro_image | relative_url }}" />
             </div>
             {% endif %}
         </div>
     </div>
 </div>
 
-<div class="container pt-6 pb-6">
+<div class="container pt-6 pb-6" style="padding-top: 0px !important">
     <div class="row">
         {% assign promoted_teams = site.team | where: "promoted", true | sort: "weight" %}
         {% for team in promoted_teams %}
@@ -30,13 +47,20 @@ bodyClass: "page-teams"
                 </div>
                 {% endif %}
                 <div class="team-meta">
-                    <h2 class="team-name"><a href="{{ team.url | relative_url }}">{{ team.title }}</a></h2>
+                    <h2 class="team-name">
+                        <a href="{{ team.url | relative_url }}">{{ team.title }}</a>
+                    </h2>
                     <p class="team-description">{{ team.jobtitle }}</p>
                     {% if team.linkedinurl %}
-                    <a target="_blank" href="{{ team.linkedinurl }}" rel="noreferrer">LinkedIn</a>
+                    <a href="{{ team.linkedinurl }}" target="_blank">
+                        <ion-icon name="logo-linkedin" class="icon"></ion-icon>
+                    </a>
                     {% endif %}
-                </div>
-                <div class="team-content">{{ team.excerpt | truncate: 120 }}</div>
+                    {% if team.email %}
+                    <a class = "email" href="mailto:{{ team.email }}" style="color: rgb(6, 10, 11)">{{ team.email }}</a>
+                    {% endif %}
+                </div>                
+                <div class="team-content">{{ team.bio | truncate: 180 }}</div>
             </div>
         </div>
         {% endfor %}
@@ -60,3 +84,7 @@ bodyClass: "page-teams"
         {% endfor %}
     </div>
 </div>
+
+
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>

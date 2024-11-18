@@ -1,13 +1,13 @@
-.intro {
+.intro_staff {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 0px;
+  padding-top: 50px;
   padding-bottom: 0px;
   overflow: hidden;
   @include media-breakpoint-up(md) {
-    padding-top: 100px;
-    padding-bottom: 70px;
+    padding-top: 75px;
+    padding-bottom: 120px;
   }
   h1 {
     color: $black;
@@ -35,6 +35,7 @@
     font-size: 1.2rem;
     font-weight: light;
     line-height: 1.5;
+    font-family: Montserrat;
     color: $steel;
     @include media-breakpoint-up(md) {
       width: 80%;
