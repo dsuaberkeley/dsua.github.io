@@ -1,5 +1,5 @@
 ---
-title: "Bing Concepcion"
+title: "Brandon Concepcion"
 date: 2018-11-19T10:47:58+10:00
 image: "images/team/bing_c.png"
 jobtitle: "Web Development"
